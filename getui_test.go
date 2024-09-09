@@ -3,14 +3,16 @@ package getui
 import (
 	"context"
 	"encoding/json"
-	"github.com/dacker-soul/getui/auth"
-	"github.com/dacker-soul/getui/publics"
-	"github.com/dacker-soul/getui/push/single"
 	"strconv"
 	"time"
 
-	"github.com/alecthomas/assert"
+	"github.com/joeluodongjiu/getui/auth"
+	"github.com/joeluodongjiu/getui/publics"
+	"github.com/joeluodongjiu/getui/push/single"
+
 	"testing"
+
+	"github.com/alecthomas/assert"
 )
 
 var (
