@@ -165,9 +165,11 @@ type Notification struct {
 	 */
 
 	// options为push_channel厂商通道中安卓专有
-	Options *Options `json:"options,omitempty"` // 第三方厂商通知扩展内容
+	Options OptionsFix `json:"options,omitempty"` // 第三方厂商通知扩展内容
 
 }
+
+type OptionsFix map[string]map[string]interface{}
 
 type Options struct {
 	Constraint string `json:"constraint,omitempty"` // 非必须，扩展内容对应厂商通道设置如：HW,MZ,...
