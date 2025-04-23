@@ -175,6 +175,8 @@ type Revoke struct {
 type PushChannel struct {
 	Ios     *IosChannel     `json:"ios,omitempty"`     // 非必须，ios通道推送消息内容
 	Android *AndroidChannel `json:"android,omitempty"` // 非必须，android通道推送消息内容
+	// 非必须， 鸿蒙通道推送消息内容
+	Harmony *HarmonyChannel `json:"harmony,omitempty"` // 非必须，鸿蒙通道推送消息内容
 }
 
 // ios厂商通道消息
@@ -187,6 +189,12 @@ type IosChannel struct {
 	PayLoad        string        `json:"payload,omitempty"`          // 非必须，增加自定义的数据
 	Multimedia     *[]Multimedia `json:"multimedia,omitempty"`       // 非必须，该字段为Array类型,设置多媒体
 	ApnsCollapseId string        `json:"apns-collapse-id,omitempty"` // 非必须，使用相同的apns-collapse-id可以覆盖之前的消息
+}
+
+type HarmonyChannel struct {
+	Notification *Notification `json:"notification"` // 非必须,通知消息内容，与transmission 二选一，两个都填写时报错
+	// options为push_channel厂商通道中安卓专有
+	Options OptionsFix `json:"options,omitempty"` // 第三方厂商通知扩展内容
 }
 
 // 推送通知消息内容
