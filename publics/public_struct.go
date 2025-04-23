@@ -192,9 +192,14 @@ type IosChannel struct {
 }
 
 type HarmonyChannel struct {
-	Notification *Notification `json:"notification"` // 非必须,通知消息内容，与transmission 二选一，两个都填写时报错
+	Notification *HarmonyNotification `json:"notification"` // 非必须,通知消息内容，与transmission 二选一，两个都填写时报错
 	// options为push_channel厂商通道中安卓专有
 	Options OptionsFix `json:"options,omitempty"` // 第三方厂商通知扩展内容
+}
+
+type HarmonyNotification struct {
+	Notification
+	Category string `json:"category,omitempty"` // 非必须，在客户端通知栏触发特定的action和button显示
 }
 
 // 推送通知消息内容
