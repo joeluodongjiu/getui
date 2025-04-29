@@ -157,6 +157,8 @@ type Notification struct {
 	 * 示例：intent:#Intent;component=你的包名/你要打开的 activity 全路径;S.parm1=value1;S.parm2=value2;end
 	 * 如何生成：https://github.com/GetuiLaboratory/getui-pushapi-java-demo/blob/master/intent%E7%94%9F%E6%88%90%E5%8F%82%E8%80%83%E7%A4%BA%E4%BE%8B.md
 	 */
+	Want string `json:"want_intent,omitempty"`
+	// 鸿蒙系统当，click_type为intent时必填
 	Url         string `json:"url,omitempty"`       // click_type为url时必填,点击通知打开链接，长度 ≤ 1024
 	PayLoad     string `json:"payload,omitempty"`   // click_type为payload/payload_custom时必填,点击通知加自定义消息，长度 ≤ 3072
 	NotifyId    int64  `json:"notify_id,omitempty"` // 非必须，覆盖任务时会使用到该字段，两条消息的notify_id相同，新的消息会覆盖老的消息，范围：0-2147483647
